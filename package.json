@@ -1,0 +1,24 @@
+{
+  "name": "hola-ingeniero",
+  "version": "1.0.0",
+  "private": true,
+  "description": "\u00a1Hola Ingeniero! Spanish for the Next Generation of Engineers",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "start": "npm run dev",
+    "build": "npm run build --prefix frontend",
+    "serve": "npm run build && npm run start --prefix backend",
+    "lint": "npm run lint --prefix frontend && npm run lint --prefix backend",
+    "test": "npm run test --prefix backend && npm run test --prefix frontend",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "check:ai": "npm run check:ai --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
